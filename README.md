@@ -1,6 +1,7 @@
 # C214---TESTE
 Exercico para praticar sobre teste: 
 
+Alunos: Ana Paula Serafim de Góis, Pedro Henrique Ribeiro
 
 Questão 1)
 Teste uma classe responsável por popular uma página WEB com informações referentes ao horário de atendimento dos professores do Inatel. O horário de
