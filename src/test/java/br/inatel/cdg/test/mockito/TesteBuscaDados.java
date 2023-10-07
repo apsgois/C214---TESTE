@@ -5,6 +5,7 @@ import br.inatel.cdg.BuscaDados;
 import br.inatel.cdg.DadosService;
 import br.inatel.cdg.Dados;
 import br.inatel.cdg.test.DadosConst;
+import com.google.gson.JsonElement;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,6 +24,9 @@ public class TesteBuscaDados {
 
     private BuscaDados buscaDados;
 
+    private int getIntFromJsonElement(JsonElement element) {
+        return Integer.parseInt(element.getAsString());
+    }
     @Before
     public void setup(){buscaDados = new BuscaDados(service);}
 
@@ -36,7 +40,7 @@ public class TesteBuscaDados {
         assertEquals(8, renzo.gethorarioDeAtendimento(),0.1);
         assertEquals(1, renzo.getperiodo(), 0.1);
         assertEquals(1, renzo.getsala(), 0.1);
-        assertEquals(1, renzo.getpredio().get(0));
+        assertEquals(1, getIntFromJsonElement(renzo.getpredio().get(0)));
 
     }
 
@@ -50,7 +54,7 @@ public class TesteBuscaDados {
         assertEquals(9, marcelo.gethorarioDeAtendimento(),0.1);
         assertEquals(2, marcelo.getperiodo(), 0.1);
         assertEquals(2, marcelo.getsala(), 0.1);
-        assertEquals(1, marcelo.getpredio().get(0));
+        assertEquals(1, getIntFromJsonElement(marcelo.getpredio().get(0)));
 
     }
 
@@ -64,7 +68,7 @@ public class TesteBuscaDados {
         assertEquals(10, chris.gethorarioDeAtendimento(),0.1);
         assertEquals(3, chris.getperiodo(), 0.1);
         assertEquals(3, chris.getsala(), 0.1);
-        assertEquals(1, chris.getpredio().get(0));
+        assertEquals(1, getIntFromJsonElement(chris.getpredio().get(0)));
 
     }
 
@@ -78,7 +82,7 @@ public class TesteBuscaDados {
         assertEquals(11, joao.gethorarioDeAtendimento(),0.1);
         assertEquals(4, joao.getperiodo(), 0.1);
         assertEquals(4, joao.getsala(), 0.1);
-        assertEquals(1, joao.getpredio().get(0));
+        assertEquals(1, getIntFromJsonElement(joao.getpredio().get(0)));
 
     }
 
@@ -92,7 +96,7 @@ public class TesteBuscaDados {
         assertEquals(12, maria.gethorarioDeAtendimento(),0.1);
         assertEquals(5, maria.getperiodo(), 0.1);
         assertEquals(5, maria.getsala(), 0.1);
-        assertEquals(1, maria.getpredio().get(0));
+        assertEquals(1, getIntFromJsonElement(maria.getpredio().get(0)));
 
     }
 
@@ -102,11 +106,11 @@ public class TesteBuscaDados {
 
         Dados joana = buscaDados.buscaDado(8);
 
-        assertEquals("Maria", joana.getNomeDoProfessor());
+        assertEquals("Joana", joana.getNomeDoProfessor());
         assertEquals(13, joana.gethorarioDeAtendimento(),0.1);
         assertEquals(6, joana.getperiodo(), 0.1);
         assertEquals(6, joana.getsala(), 0.1);
-        assertEquals(1, joana.getpredio().get(0));
+        assertEquals(1, getIntFromJsonElement(joana.getpredio().get(0)));
 
     }
 
@@ -116,13 +120,15 @@ public class TesteBuscaDados {
 
         Dados carol = buscaDados.buscaDado(8);
 
-        assertEquals("Maria", carol.getNomeDoProfessor());
+        assertEquals("Carol", carol.getNomeDoProfessor());
         assertEquals(14, carol.gethorarioDeAtendimento(),0.1);
         assertEquals(7, carol.getperiodo(), 0.1);
         assertEquals(7, carol.getsala(), 0.1);
-        assertEquals(1, carol.getpredio().get(0));
-
+        assertEquals(1, getIntFromJsonElement(carol.getpredio().get(0)));
     }
+
+
+
 
     @Test
     public void testBuscaProfessorFlavia(){
@@ -134,7 +140,7 @@ public class TesteBuscaDados {
         assertEquals(15, flavia.gethorarioDeAtendimento(),0.1);
         assertEquals(8, flavia.getperiodo(), 0.1);
         assertEquals(8, flavia.getsala(), 0.1);
-        assertEquals(1, flavia.getpredio().get(0));
+        assertEquals(1, getIntFromJsonElement(flavia.getpredio().get(0)));
 
     }
 
@@ -148,7 +154,7 @@ public class TesteBuscaDados {
         assertEquals(16, mj.gethorarioDeAtendimento(),0.1);
         assertEquals(9, mj.getperiodo(), 0.1);
         assertEquals(9, mj.getsala(), 0.1);
-        assertEquals(1, mj.getpredio().get(0));
+        assertEquals(1, getIntFromJsonElement(mj.getpredio().get(0)));
 
     }
 
@@ -162,7 +168,7 @@ public class TesteBuscaDados {
         assertEquals(17, joaquim.gethorarioDeAtendimento(),0.1);
         assertEquals(10, joaquim.getperiodo(), 0.1);
         assertEquals(10, joaquim.getsala(), 0.1);
-        assertEquals("1", joaquim.getpredio().get(0));
+        assertEquals(1, getIntFromJsonElement(joaquim.getpredio().get(0)));
 
     }
 
@@ -176,7 +182,7 @@ public class TesteBuscaDados {
         assertEquals(00, inexistente.gethorarioDeAtendimento(),0.1);
         assertEquals(0, inexistente.getperiodo(), 0.1);
         assertEquals(1, inexistente.getsala(), 0.1);
-        assertEquals(1, inexistente.getpredio().get(0));
+        assertEquals(1, getIntFromJsonElement(inexistente.getpredio().get(0)));
 
     }
 
